@@ -29,6 +29,13 @@ gem "jbuilder"
 # Use Redis adapter to run Action Cable in production
 gem "redis", ">= 4.0.1"
 
+# Use faraday for HTTP requests
+gem 'faraday', '~> 2.9'
+# Rubocop for coding style
+gem 'rubocop', '~> 1.63', '>= 1.63.2'
+
+gem 'byebug'
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
