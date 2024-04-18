@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
 class EmployeesController < ApplicationController
-  def index; end
+  def index
+    @employees = Employee.all
+  end
 end
