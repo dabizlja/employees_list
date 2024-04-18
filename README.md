@@ -1,6 +1,3 @@
-Sure, here's a basic README template for your project:
-
-
 ## Setup
 
 1. Clone the repository:
