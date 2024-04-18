@@ -1,24 +1,48 @@
-# README
+Sure, here's a basic README template for your project:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## Setup
 
-* Ruby version
+1. Clone the repository:
 
-* System dependencies
+```bash
+git clone https://github.com/yourusername/employee-importer.git
+cd employee-importer
+```
 
-* Configuration
+2. Install the dependencies:
 
-* Database creation
+```bash
+bundle install
+```
 
-* Database initialization
+3. Setup the daatabase:
 
-* How to run the test suite
+```bash
+rails db:create
+rails db:migrate
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+## Importing Employees
 
-* Deployment instructions
+To import employees from the external API, run the following rake task:
 
-* ...
+```bash
+rake import:employees
+```
+
+This will fetch the list of employees from the API and create them in the database.
+
+## Viewing Employees
+
+To view the list of employees, start the Rails server:
+
+```bash
+rails server
+```
+
+Then, navigate to http://localhost:3000/employees in your web browser.
+
+## Credentials
+
+This application uses Rails credentials for storing sensitive information such as passwords and client secrets. If you need to edit the credentials, please contact me privately and I will provide the master.key.
