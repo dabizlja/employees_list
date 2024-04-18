@@ -6,6 +6,8 @@
 # @example
 #   CreateEmployeesService.new.create!
 #
+# Note: Token expiration should be covered
+# Proposal: Add table and field to table to store expiration date and then we can do check here in method
 class CreateEmployeesService
   def create!
     employees.each do |employee|
@@ -23,20 +25,22 @@ class CreateEmployeesService
     @employees ||= JSON.parse(response.body)
   end
 
+  # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
   def authentication_token
     response = conn.post('assignment/token/') do |req|
       req.headers['Content-Type'] = 'application/json'
-      req.body = { 
-        grant_type: 'password', 
+      req.body = {
+        grant_type: 'password',
         client_id: Rails.application.credentials.client_id,
-        client_secret: Rails.application.credentials.client_secret, 
-        username: Rails.application.credentials.username, 
-        password: Rails.application.credentials.password 
+        client_secret: Rails.application.credentials.client_secret,
+        username: Rails.application.credentials.username,
+        password: Rails.application.credentials.password
       }.to_json
     end
-    
+
     @authentication_token ||= JSON.parse(response.body)['access_token']
   end
+  # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
 
   def conn
     @conn ||= Faraday.new(url: 'https://beta.01cxhdz3a8jnmapv.com/api/v1/')
