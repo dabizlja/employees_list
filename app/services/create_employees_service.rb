@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # This service is responsible for creating employees.
-# It sends a POST request to the API to fetch list of employees and then creates them in database.
+# It sends a GET request to the API to fetch list of employees and then creates them in database.
 #
 # @example
 #   CreateEmployeesService.new.create!
