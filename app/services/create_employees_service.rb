@@ -26,10 +26,15 @@ class CreateEmployeesService
   def authentication_token
     response = conn.post('assignment/token/') do |req|
       req.headers['Content-Type'] = 'application/json'
-      req.body = { grant_type: 'password', client_id: '6779ef20e75817b79605',
-                   client_secret: '3e0f85f44b9ffbc87e90acf40d482602', username: 'hiring', password: 'tmtg' }.to_json
+      req.body = { 
+        grant_type: 'password', 
+        client_id: Rails.application.credentials.client_id,
+        client_secret: Rails.application.credentials.client_secret, 
+        username: Rails.application.credentials.username, 
+        password: Rails.application.credentials.password 
+      }.to_json
     end
-
+    
     @authentication_token ||= JSON.parse(response.body)['access_token']
   end
 
