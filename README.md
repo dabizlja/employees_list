@@ -3,8 +3,8 @@
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/employee-importer.git
-cd employee-importer
+git clone https://github.com/yourusername/employees_list.git
+cd employees_list
 ```
 
 2. Install the dependencies:
